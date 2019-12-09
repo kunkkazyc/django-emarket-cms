@@ -5,7 +5,7 @@ yum install -y mysql-devel gcc gcc-devel python-devel libtiff-devel libjpeg-deve
 
 
 第二步：安装django环境 （依赖第四步的拷贝工程代码）
-pip install -r requirements.txt  -i   https://pypi.douban.com/simple
+pip install -r requirement.txt  -i   https://pypi.douban.com/simple
 
 
 第三步：启动工程

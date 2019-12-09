@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-from collections import OrderedDict
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
+ALLOWED_HOSTS = ["39.105.158.98"]
 
 daily_rotating_config = {
     'level': 'INFO',
