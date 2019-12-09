@@ -1,0 +1,222 @@
+a {
+    text-decoration: none
+}
+
+.top_info {
+    width: auto;
+    height: 260px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.top_info .fenbi_logo {
+    float: left;
+    margin-top: -50px;
+    margin-left: 18%;
+    height: 30px;
+}
+
+.top_info .school_info {
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+
+.top_info .fenbi_logo .service_number {
+    text-align: center;
+    font-size: 18px;
+    color: #666666;
+    letter-spacing: -0.89px;
+    line-height: 21px;
+}
+
+.top_info .school_info_right {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    background-color: gray;
+    margin: auto 0;
+    overflow: auto;
+}
+
+.top_info .school_info .school_name {
+    margin-top: 80px;
+    font-size: 68px;
+    color: #44b562;
+    letter-spacing: -1.63px;
+    font-family: 'Courier New', Monospace;
+    font-weight: 600;
+    text-align: center;
+}
+
+.top_info .school_info .school_address {
+    font-size: 22px;
+    color: #666666;
+    letter-spacing: -0.78px;
+    text-align: center;
+}
+
+.code_form_div {
+    background-color: white;
+    width: 100%;
+}
+
+.code_form_div .hit {
+    margin-top: 0px;
+    font-size: 25px;
+    text-align: center;
+    color: red;
+    margin-top: 15px;
+}
+
+.code_form_div .student_code {
+    width: 30%;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 35%;
+    font-size: 40px;
+}
+
+.code_form_div .guide {
+    margin: 15px auto 0px;
+    width: 700px;
+    height: 331px
+}
+
+.student_info_div {
+    font-size: 22px;
+    height: auto;
+    display: none;
+}
+
+.student_info_div .checkin_success {
+    margin-top: 20px;
+    font-size: 40px;
+    color: #0099ff;
+    letter-spacing: -0.78px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.student_info_div .student_info_display {
+    margin: 20px auto;
+    width: 430px;
+    height: 226px;
+}
+
+.student_info_div .student_info {
+    width: 400px;
+    height: 300px;
+    margin: 20px auto;
+    background-color: white;
+    border: 2px #111111;
+    display: none;
+}
+
+.student_info_div .student_info_detail_display {
+    padding-left: 50px;
+    padding-top: 30px;
+}
+
+.student_info_div .student_info_detail {
+    padding: 0px;
+}
+
+.student_info_div .button_div {
+    width: 100%;
+    height: 100px;
+    margin: 0 auto;
+    overflow: auto;
+
+}
+
+.student_info_div .print_div {
+    width: 100%;
+    margin: auto 0;
+    overflow: auto;
+}
+
+.student_info_div .error_div {
+    width: 49%;
+    margin: auto 0;
+    overflow: auto;
+    float: right;
+}
+
+.student_info_div .right_print {
+    width: 360px;
+    height: 70px;
+    margin: 5px auto;
+    border: 2px #111111;
+    background: #0099ff;
+    border-radius: 4px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 240%;
+}
+
+.student_info_div .error {
+    width: 200px;
+    height: 60px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: 2px #111111;
+    border-radius: 10px;
+    background-color: #34AADC;
+    font-size: 20px;
+    color: red;
+    text-align: center;
+    line-height: 150%;
+    float: left;
+}
+
+.info {
+    text-align: center;
+    color: #666666;
+    letter-spacing: -0.78px;
+    overflow: auto;
+    margin: 40px auto 0;
+    display: none;
+    font-size: 40px;
+    height: 60px;
+}
+
+.message_hit {
+    text-align: center;
+    color: #666666;
+    letter-spacing: -0.78px;
+    overflow: auto;
+    display: none;
+    margin: 15px auto;
+    width: 60%;
+    font-size: 26px;
+}
+
+.message {
+    font-size: 20px;
+    text-align: center;
+}
+
+.display_p {
+    margin: 3px;
+    font-size: 22px;
+}
+
+.print_p {
+    margin: 2px;
+    font-size: 18px;
+}
+
+.attention {
+    margin: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: #666;
+    letter-spacing: -1.07px;
+}
+
+#lecture_template_dialog_form {
+    text-align:center;
+}

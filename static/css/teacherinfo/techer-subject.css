@@ -1,0 +1,62 @@
+.teacher_subject_container ul {
+    display: inline-block;
+    margin: 0px;
+}
+
+.teacher_subject_container > ul > li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+    height: 30px;
+    border-radius: 5px;
+    padding: 0px 20px;
+    background: #dfdfdf;
+    box-sizing: border-box;
+    border: 1px solid #dfdfdf;
+}
+
+.teacher_subject_container li:hover select, .teacher_subject_container li:hover .teacher_subject_delete_li, .teacher_subject_container li:hover .icon-color {
+    display: inline-block;
+}
+
+.teacher_subject_container li select {
+    width: 50px;
+    display: none;
+}
+
+.teacher_subject_container li img {
+    display: none;
+}
+
+.teacher_subject_container li .teacher_subject_delete_li {
+    display: none;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    top: -6px;
+    right: -6px;
+    background: url('./img/icon-delete.png') no-repeat;
+    background-size: 16px;
+}
+
+.teacher_subject_container li span {
+    border: none;
+    padding: 0;
+    background: transparent;
+    height: 30px;
+    line-height: 30px;
+    color: inherit;
+}
+
+.teacher_subject_container li span:focus {
+    outline: none;
+}
+
+.teacher_subject_container button {
+    width: 60px;
+    height: 28px;
+    background: #3C7CFC;
+    border-radius: 5px;
+    border: none;
+    color: white;
+}
