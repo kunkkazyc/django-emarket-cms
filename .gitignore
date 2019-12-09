@@ -1,0 +1,7 @@
+*.log
+uwsgi.pid
+settings.py
+.idea/
+logs/
+*.pyc
+static_files/
