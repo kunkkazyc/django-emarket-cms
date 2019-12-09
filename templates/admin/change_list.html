@@ -1,0 +1,21 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+    {{ block.super }}
+{#    <script>#}
+{#        $(".changelist-save").remove();#}
+{#        $(".changelist-save").attr("disabled", "disabled");#}
+{##}
+{#    </script>#}
+    {% if has_view_permission and not has_change_permission %}
+        <script>
+        jQuery('input').attr('readonly', 'readonly');
+        jQuery('textarea').attr('readonly', 'readonly');
+        jQuery('input:checkbox').attr('disabled', true);
+        jQuery('select').attr('disabled', true);
+        jQuery('.add-another').hide();
+        jQuery('input:submit').attr('disabled', true);
+        jQuery('button').attr('disabled', true);
+    {% endif %}
+</script>
+{% endblock %}

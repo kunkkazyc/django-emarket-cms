@@ -1,0 +1,59 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_static admin_modify suit_tags admin_urls tags %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script>
+        $(document).ready(function () {
+            $("#course_selector").attr("disabled", true);
+
+            {% if has_change_permission == False %}
+                $("fieldset.has_perm").find("input,select,textarea").attr('disabled', 'disabled');
+            {% endif %}
+        });
+    </script>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <ul class="breadcrumb">
+        <li>
+            <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+            <span class="divider">&raquo;</span>
+        </li>
+        <li>
+            <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ app_label|capfirst|escape }}</a>
+            <span class="divider">&raquo;</span>
+        </li>
+        <li>
+            {% if has_change_permission or has_view_permission %}
+                <a href="{% url opts|admin_urlname:'changelist' %}">
+                    {{ opts.verbose_name_plural|capfirst }}</a>{% else %}
+                {{ opts.verbose_name_plural|capfirst }}{% endif %}
+            <span class="divider">&raquo;</span>
+        </li>
+        <li class="active">
+            {% if add %}{% trans 'Add' %} {{ opts.verbose_name }}{% else %}{{ original|truncatewords:"18" }}{% endif %}
+        </li>
+    </ul>
+{% endblock %}
+
+
+{% block content %}
+    {{ block.super }}
+    {% if has_view_permission and not has_change_permission %}
+        <script>
+            jQuery('input').attr('readonly', 'readonly');
+            jQuery('textarea').attr('readonly', 'readonly');
+            jQuery('input:checkbox').attr('disabled', true);
+            jQuery('select').attr('disabled', true);
+            jQuery('.add-another').hide();
+            jQuery('input:submit').attr('disabled', true);
+            jQuery('button').attr('disabled', true);
+        </script>
+    {% endif %}
+    <script>
+        jQuery('[name="_continue"]').hide();
+        jQuery('[name="_addanother"]').hide();
+    </script>
+
+{% endblock %}
