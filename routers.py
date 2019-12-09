@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'leestrong'
 
-_EMARKET_APPS = set(('emarket',))
+_EMARKET_APPS = set(('book',))
 
 
 class AuthRouter(object):
@@ -40,7 +40,7 @@ class AuthRouter(object):
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-    
+
         if 'model' in hints:
             model = hints['model']
             if db == 'auth_db':
@@ -57,7 +57,7 @@ class EmarketRouter(object):
     """
 
     def use_emarket(self, model):
-        if model._meta.db_tablespace == u'emarket' or model._meta.db_tablespace is u'emarket':
+        if not model.__module__.startswith('django.contrib.'):
             return True
         return False
 
@@ -87,7 +87,7 @@ class EmarketRouter(object):
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
-    
+
         if 'model' in hints:
             model = hints['model']
             if db == 'emarket':

@@ -1,9 +1,9 @@
 {% extends "admin/base.html" %}
-{% load i18n admin_reorder_tag %}
 
-{% block branding %}
-<h1 id="site-name">xxx</h1>
-{% endblock %}
-{% block footer %}
-<div id="footer"><a name='bottom' id='bottom'></a></div>
+{% load i18n %}
+{% load staticfiles %}
+{% load admin_static %}{% load suit_tags %}
+{% block extrahead %}
+    <script type="text/javascript" src="{% static "admin/js/jquery.init.js" %}"></script>
+    <script type="text/javascript" src="{% static "admin/js/core.js" %}"></script>
 {% endblock %}

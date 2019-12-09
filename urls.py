@@ -17,5 +17,5 @@ urlpatterns = [
     url(r'^admin/', include(site.urls)),
     url(r'^admin/jsi18n', i18n_javascript),  # 如果用到i18n,需要这项映射
 
-    url(r'^admin/(teacherinfo|op|teacherstat)/$', site.app_index),
+    url(r'^admin/(book)/$', site.app_index),
 ]

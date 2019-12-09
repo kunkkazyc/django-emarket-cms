@@ -3,9 +3,6 @@ import os
 import sys
 from collections import OrderedDict
 
-import ldap
-from django_auth_ldap.config import LDAPSearch, LDAPSearchUnion
-
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -43,32 +40,15 @@ SECRET_KEY = '5c55^we7jq3y5hf!0w2+tv2+0!8$$x5fig7%ps3veuxm4)2ew^'
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 
-# TEMPLATE_DEBUG = False
-
-ALLOWED_HOSTS = ['*', ]
-
-# Baseline configuration.
-AUTH_LDAP_SERVER_URI = 'ldap://ldap.xxx.com'
-AUTH_LDAP_BIND_DN = 'cn=cube,ou=service,dc=xxx,dc=com'
-AUTH_LDAP_BIND_PASSWORD = 'cube123'
-
-AUTH_LDAP_USER_SEARCH = LDAPSearchUnion(LDAPSearch('ou=people,dc=fenbi,dc=com', ldap.SCOPE_SUBTREE, '(cn=%(user)s)'),
-                                        LDAPSearch('ou=temp,dc=fenbi,dc=com', ldap.SCOPE_SUBTREE, '(cn=%(user)s)'), )
-
-AUTH_LDAP_USER_ATTR_MAP = {'username': 'cn', 'email': 'mail',}
-
-AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',
-                           # 'apps.commons.backends.FenbiRateLimitModelBackend',
-                           )
-
 # Application definition
-
 INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions',
-                  'django.contrib.messages', 'django.contrib.staticfiles', 'suit', 'django.contrib.admin']
+                  'django.contrib.messages', 'django.contrib.staticfiles', 'suit', 'django.contrib.admin', 'commons',
+                  'book']
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware', 'django.middleware.security.SecurityMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',)
 
@@ -98,12 +78,6 @@ USE_TZ = True
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
-SESSION_COOKIE_AGE = 60 * 60 * 24
-SESSION_COOKIE_HTTPONLY = True
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_FRAME_DENY = True
-
 LOGIN_URL = '/admin/login'
 
 TEMPLATES = [
@@ -130,12 +104,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_files")
 
 EXCEL_TEMPLATE_DIR = os.path.join(BASE_DIR, "templatefile")
 
-TEACHER_INFO_MODELS = ('teacher',)
+BOOK_MODELS = ('book',)
 
 SUIT_CONFIG = {
     'ADMIN_NAME': 'xxx电子商务管理后台',
     'MENU': (
         'sites',
-        {'app': 'teacherinfo', 'label': u'老师', 'models': TEACHER_INFO_MODELS},
+        {'app': 'contenttypes', 'label': u'内容类型', 'models': ('contenttypes',)},
+        {'app': 'auth', 'label': u'权限', 'models': ('user', 'group', 'permission')},
+        {'app': 'book', 'label': u'图书', 'models': BOOK_MODELS},
     ),
 }

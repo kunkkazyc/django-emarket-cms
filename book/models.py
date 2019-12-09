@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 import time
 from django.db import models
 
-from common.utils import time_utils
+from commons.utils import time_utils
 
 
 class Book(models.Model):
